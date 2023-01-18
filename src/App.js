@@ -1,7 +1,7 @@
 import Login from './pages/Login/Login'
-import Registration from './pages/SignUp/SignUp'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import styled from 'styled-components'
+import SignUp from './pages/SignUp/SignUp'
 
 
 const App = () => {
@@ -11,7 +11,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={(<Login/>)} />
-        <Route path="/cadastro" element={(<Registration/>)} />
+        <Route path="/cadastro" element={(<SignUp/>)} />
       </Routes>
     </BrowserRouter>
   </MainContainer>
