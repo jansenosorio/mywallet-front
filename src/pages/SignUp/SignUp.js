@@ -10,12 +10,12 @@ const SignUp = () => {
     <Container>
       <LogoComponent/>
       <StyledForm>
-        <StyledInput placeholder="Nome" />
-        <StyledInput placeholder="E-mail" />
-        <StyledInput placeholder="Senha" />
-        <StyledInput placeholder="Confirme a senha" />
+        <StyledInput placeholder="Nome" data-test="name"/>
+        <StyledInput placeholder="E-mail" data-test="email"/>
+        <StyledInput placeholder="Senha" data-test="password"/>
+        <StyledInput placeholder="Confirme a senha" data-test="conf-password"/>
       </StyledForm>
-      <StyledButton type="submit" data-test="sign-in-submit">Cadastrar</StyledButton>
+      <StyledButton type="submit" data-test="sign-up-submit">Cadastrar</StyledButton>
       <StyledLink to="/">
         Já tem uma conta? Entre agora!
       </StyledLink>
