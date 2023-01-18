@@ -1,7 +1,7 @@
 
 
 const Registration = () => {
-  return <div>Registration</div>
+  return <div>SignUp</div>
 }
 
 export default Registration
