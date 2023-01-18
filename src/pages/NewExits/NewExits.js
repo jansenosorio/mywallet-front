@@ -5,20 +5,19 @@ import StyledButton from "../../components/StyledButton"
 import StyledTitle from "../../components/StyledTitle"
 import MainContainer from "../../components/MainContainer"
 
-const NewEntry = () => {
+const NewExits = () => {
     return (
         <MainContainer>
             <Container>
-                <StyledTitle>Nova entrada</StyledTitle>
+                <StyledTitle>Nova saída</StyledTitle>
                 <StyledForm>
                     <StyledInput placeholder="Valor" data-test="registry-amount-input"/>
                     <StyledInput placeholder="Descrição" data-test="registry-name-input"/>
                 </StyledForm>
-                <StyledButton data-test="registry-save">Salvar entrada</StyledButton>
+                <StyledButton data-test="registry-save">Salvar saída</StyledButton>
             </Container>
         </MainContainer>
     )
 }
 
-export default NewEntry
-
+export default NewExits
