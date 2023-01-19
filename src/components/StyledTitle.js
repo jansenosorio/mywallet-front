@@ -8,6 +8,9 @@ const StyledTitle = styled.h1`
     font-weight: 700;
     color: white;
     margin-bottom: 40px;
+
+    display: flex;
+    justify-content: space-between;
 `
 
 export default StyledTitle
