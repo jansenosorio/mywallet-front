@@ -5,7 +5,7 @@ import StyledButton from "../../components/StyledButton"
 import StyledTitle from "../../components/StyledTitle"
 import MainContainer from "../../components/MainContainer"
 
-const NewEntry = () => {
+const NewIncome = () => {
     return (
         <MainContainer>
             <Container>
@@ -20,5 +20,5 @@ const NewEntry = () => {
     )
 }
 
-export default NewEntry
+export default NewIncome
 
