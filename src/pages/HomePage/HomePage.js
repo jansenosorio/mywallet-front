@@ -7,6 +7,7 @@ import BtnExpenses from '../../components/BtnExpenses'
 import BtnContainer from '../../components/BtnContainer'
 
 import { IoExitOutline } from 'react-icons/io5'
+import { Link } from 'react-router-dom'
 
 
 
@@ -18,12 +19,14 @@ const HomePage = () => {
                     <div>
                     Olá, <span data-test="user-name">Fulano </span>
                     </div>
-                    <IoExitOutline data-test="logout"/>
+                    <Link to="/">
+                     <IoExitOutline data-test="logout"/>
+                    </Link>
                 </StyledTitle>
                 <Dashboard/>
                 <BtnContainer>
-                    <BtnIncome/>
-                    <BtnExpenses/>
+                    <BtnIncome data-test="new-income"/>
+                    <BtnExpenses data-test="new-expense"/>
                 </BtnContainer>
             </Container>
         </MainContainer>

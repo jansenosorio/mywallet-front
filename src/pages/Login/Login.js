@@ -1,26 +1,73 @@
-import { LogoComponent } from "../../components/LogoComponent"
-import StyledInput from "../../components/StyledInput"
-import StyledLink from "../../components/StyledLink"
-import StyledButton from "../../components/StyledButton"
-import StyledForm from "../../components/StyledForm"
-import Container from '../../components/Container'
+import { LogoComponent } from "../../components/LogoComponent";
+import StyledInput from "../../components/StyledInput";
+import StyledLink from "../../components/StyledLink";
+import StyledButton from "../../components/StyledButton";
+import StyledForm from "../../components/StyledForm";
+import Container from "../../components/Container";
+import { REACT_APP_API_URL } from "../../services/urlConfig";
+import { Navigate } from "react-router";
+import { useState } from "react";
+import axios from "axios";
 
 const Login = () => {
+  const [form, setForm] = useState({ email: "", password: "" });
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleForm = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const hadleSubmit = (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    const promise = axios.post(`${REACT_APP_API_URL}/login`, form);
+    promise
+      .then((res) => {
+        console.log(res.data);
+        setIsLoading(false);
+        Navigate("/home");
+      })
+      .catch((err) => {
+        console.log(err);
+        setIsLoading(false);
+      });
+  };
+
   return (
     <Container>
-      <LogoComponent/>
-      <StyledForm>
-        <StyledInput placeholder="E-mail" data-test="email"/>
-        <StyledInput placeholder="Senha" data-test="password"/>
+      <LogoComponent />
+      <StyledForm onSubmit={hadleSubmit}>
+        <StyledInput
+          name="email"
+          placeholder="E-mail"
+          type="email"
+          required
+          onChange={handleForm}
+          data-test="email"
+          value={form.email}
+        />
+        <StyledInput
+          name="password"
+          placeholder="Senha"
+          type="password"
+          required
+          onChange={handleForm}
+          data-test="password"
+          value={form.password}
+        />
+        <StyledButton
+          type="submit"
+          data-test="sign-in-submit"
+          disabled={isLoading}
+        >
+          Entrar
+        </StyledButton>
       </StyledForm>
-      <StyledButton type="submit" data-test="sign-in-submit">Entrar</StyledButton>
-      <StyledLink to="/cadastro">
-        Primeira vez? Cadastre-se!
-      </StyledLink>
+
+      <StyledLink to="/cadastro">Primeira vez? Cadastre-se!</StyledLink>
     </Container>
-  )
-}
+  );
+};
 
-export default Login
-
-
+export default Login;

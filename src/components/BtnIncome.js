@@ -22,7 +22,7 @@ const ButtonIn = styled(Link)`
     flex-direction: column;
     justify-content: space-between;
 
-    width: 155px;
+    width: 173px;
     height: 114px;
     background-color: #A328D6;
     border-radius: 5px;
@@ -41,5 +41,5 @@ const ButtonIn = styled(Link)`
     box-sizing: border-box;
     text-decoration: none;
 
-    padding: 10px 50px 10px 10px;
+    padding: 10px 65px 10px 10px;
 ` 

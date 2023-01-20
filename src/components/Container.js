@@ -7,6 +7,9 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-left: 25px;
+  padding-right: 25px;
+  box-sizing: border-box;
 `
 
 export default Container
