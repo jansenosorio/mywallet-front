@@ -5,13 +5,14 @@ import StyledButton from "../../components/StyledButton";
 import StyledForm from "../../components/StyledForm";
 import Container from "../../components/Container";
 import { REACT_APP_API_URL } from "../../services/urlConfig";
-import { Navigate } from "react-router";
+import { useNavigate } from "react-router";
 import { useState } from "react";
 import axios from "axios";
 
 const Login = () => {
   const [form, setForm] = useState({ email: "", password: "" });
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate()
 
   const handleForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -26,10 +27,10 @@ const Login = () => {
       .then((res) => {
         console.log(res.data);
         setIsLoading(false);
-        Navigate("/home");
+        navigate("/home");
       })
       .catch((err) => {
-        console.log(err);
+        alert(err.response.data);
         setIsLoading(false);
       });
   };
