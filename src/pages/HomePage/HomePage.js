@@ -7,20 +7,32 @@ import BtnExpenses from '../../components/BtnExpenses'
 import BtnContainer from '../../components/BtnContainer'
 
 import { IoExitOutline } from 'react-icons/io5'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+import PageContext from '../../constants/PageContext'
 
 
 
 const HomePage = () => {
+    const { userToken, setUserToken } = useContext(PageContext)
+    const navigate = useNavigate()
+
+    const handleClick = () => {
+        setUserToken("")
+        navigate("/")
+    }
+
+    
+
     return (
         <MainContainer>
             <Container>
                 <StyledTitle>
                     <div>
-                    Olá, <span data-test="user-name">Fulano </span>
+                    Olá, <span data-test="user-name">{userToken.name} </span>
                     </div>
                     <Link to="/">
-                     <IoExitOutline data-test="logout"/>
+                     <IoExitOutline onClick={() => handleClick()} data-test="logout"/>
                     </Link>
                 </StyledTitle>
                 <Dashboard/>

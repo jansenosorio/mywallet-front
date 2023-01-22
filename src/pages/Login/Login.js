@@ -6,13 +6,15 @@ import StyledForm from "../../components/StyledForm";
 import Container from "../../components/Container";
 import { REACT_APP_API_URL } from "../../services/urlConfig";
 import { useNavigate } from "react-router";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
+import PageContext from "../../constants/PageContext";
 
 const Login = () => {
+  const { setUserToken } = useContext(PageContext);
   const [form, setForm] = useState({ email: "", password: "" });
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -25,9 +27,12 @@ const Login = () => {
     const promise = axios.post(`${REACT_APP_API_URL}/login`, form);
     promise
       .then((res) => {
-        console.log(res.data);
+        setUserToken(res.data);
+
+        if (res.data.token !== "") {
+          navigate("/home");
+        }
         setIsLoading(false);
-        navigate("/home");
       })
       .catch((err) => {
         alert(err.response.data);
