@@ -20,12 +20,16 @@ const Dashboard = () => {
 
   totalArr.map((elm) => (total += elm));
 
-  console.log(total);
+  let length = userResume.length;
+
+  total = total.toFixed(2)
+
+  console.log(length);
 
   return (
-    <Dash>
-      <ContainerLine>
-        {userResume !== null ? (
+    <Dash > 
+      <ContainerLine length={length}>
+        {length > 0 ? (
           userResume.map((elm) => (
             <ContainerDashFilled key={elm._id}>
               <Box1>
@@ -42,7 +46,7 @@ const Dashboard = () => {
         )}
       </ContainerLine>
 
-      <ContainerTotal total={total}>
+      <ContainerTotal total={total} length={length}>
         <div>
           <h1>SALDO:</h1>
         </div>
@@ -93,7 +97,7 @@ const Box2 = styled.div`
 
 const ContainerTotal = styled.div`
   width: 344px;
-  display: flex;
+  display: ${props => props.length > 0 ? 'flex' : 'none'};
   align-items: center;
   justify-content: space-between;
 
@@ -110,14 +114,17 @@ const ContainerTotal = styled.div`
     color: black;
   }
 
-  p{
-    color: ${props => props.total < 0 ? 'red' : 'green'}
+  p {
+    color: ${(props) => (props.total < 0 ? "red" : "green")};
   }
 `;
 
 const ContainerLine = styled.div`
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
   overflow-y: scroll;
-  
+  padding: ${props => props.length < 1 ? '50px' : '0px'};
+  display: ${props => props.length < 1 ? 'flex' : ''};
+  align-items: center;
 `;

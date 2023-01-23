@@ -10,7 +10,7 @@ import PageContext from "./constants/PageContext";
 
 const App = () => {
   const [userToken, setUserToken] = useState("");
-  const [userResume, setUserResume] = useState(null)
+  const [userResume, setUserResume] = useState([])
   console.log(userToken)
   console.log(userResume)
 
@@ -37,4 +37,5 @@ const MainContainer = styled.main`
   width: 100vw;
   height: 100vh;
   background-color: #8c11be;
+  
 `;
