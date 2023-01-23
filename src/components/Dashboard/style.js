@@ -13,6 +13,7 @@ const Dash = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
 
   h1 {
     font-family: Raleway;

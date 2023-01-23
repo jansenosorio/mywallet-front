@@ -14,11 +14,12 @@ import PageContext from "../../constants/PageContext";
 import { REACT_APP_API_URL } from "../../services/urlConfig";
 
 const HomePage = () => {
-  const { userToken, setUserToken, setUserResume, userResume } = useContext(PageContext);
+  const { userToken, setUserToken, setUserResume } = useContext(PageContext);
   const navigate = useNavigate();
 
   const handleClick = () => {
     setUserToken("");
+    setUserResume(null)
     navigate("/");
   };
 
@@ -34,8 +35,8 @@ const HomePage = () => {
     promise
       .then((res) => {
         const data = res.data
-        data.filter(elm => elm.idUser === userToken.email)
-        setUserResume(data)
+        const newData = data.filter(elm => elm.idUser === userToken.email)
+        setUserResume(newData)
       })
       .catch((err) => {
         console.log(err.response);

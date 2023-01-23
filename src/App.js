@@ -10,7 +10,7 @@ import PageContext from "./constants/PageContext";
 
 const App = () => {
   const [userToken, setUserToken] = useState("");
-  const [userResume, setUserResume] = useState('')
+  const [userResume, setUserResume] = useState(null)
   console.log(userToken)
   console.log(userResume)
 
