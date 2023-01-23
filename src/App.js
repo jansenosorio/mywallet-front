@@ -10,11 +10,13 @@ import PageContext from "./constants/PageContext";
 
 const App = () => {
   const [userToken, setUserToken] = useState("");
+  const [userResume, setUserResume] = useState('')
   console.log(userToken)
+  console.log(userResume)
 
   return (
     <MainContainer>
-      <PageContext.Provider value={{ userToken, setUserToken }}>
+      <PageContext.Provider value={{ userToken, setUserToken, userResume, setUserResume }}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Login />} />
