@@ -34,10 +34,10 @@ const Dashboard = () => {
             <ContainerDashFilled key={elm._id}>
               <Box1>
                 <h3>{elm.date}</h3>
-                <h3>{elm.description}</h3>
+                <h3 data-test="registry-name">{elm.description}</h3>
               </Box1>
               <Box2 type={elm.type}>
-                <h3>{`R$ ${elm.value}`}</h3>
+                <h3 data-test="registry-amount">{`R$ ${elm.value}`}</h3>
               </Box2>
             </ContainerDashFilled>
           ))
@@ -50,7 +50,7 @@ const Dashboard = () => {
         <div>
           <h1>SALDO:</h1>
         </div>
-        <p>{total}</p>
+        <p data-test="total-amount">{total}</p>
       </ContainerTotal>
     </Dash>
   );
